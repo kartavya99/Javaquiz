@@ -27,6 +27,10 @@ create div element class it with container for the questions and answer
     create div for the answer buttons
     4 button elements for answers options
 create another div container for start button and next button.
+-------------------------------------------------------------------------------
+Date : 14/03/2022
+Adding rules for the quiz to brief the users
+updated header and rules for the quiz 
 
 
 
