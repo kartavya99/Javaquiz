@@ -11,6 +11,8 @@
 <!--heading for the quiz-->    
 <header id="heading">Timed Quiz on JavaScript Fundamentals</header>
 
+
+
     <!--Quiz rules and information container-->
     <section class="rules-box" id="rules-box">
         <div id="rules-title">Quiz rules :</div>
@@ -22,8 +24,16 @@
             <h3 class="rules">5) You will earn points on basis of correct answer</h3>
         </div>
     </section>                                                                                    
+    <!-- quiz timer-->
     
-
+        <div id="quiz-timer"class="quiz-timer hide">
+            <div class="timer-text">
+                <h1>Time left</h1>
+                <div class="large-font timer-count">150</div>
+                
+            </div>
+        </div>  
+    
 
     <!--quiz question and answers-->
     <section class="container">
@@ -41,6 +51,8 @@
             <button id="next-btn" class="next-btn btn hide">Next</button>
         </div>
     </section>
+
+    
     <script src="./Assets/js/script.js"></script>
 </body>
 </html>

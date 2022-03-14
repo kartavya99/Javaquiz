@@ -34,11 +34,17 @@ options:[ "v carName;" , "variable carName;" , "var carName;" , "var = carName;"
 }
 ];
 
+// timer variable
+var secondsLeft = 150;
+
+
+
 //below are the variable to initiate the quiz
 var startButton = document.getElementById("start-btn");
 var questionContainerElement = document.getElementById("question-container");
 var heading = document.getElementById("heading");
 var rulesBox = document.getElementById("rules-box");
+var quizTimer = document.getElementById("quiz-timer");
 
 startButton.addEventListener("click", startGame);
 
@@ -50,6 +56,28 @@ function startGame() {
     heading.classList.add("hide"); // hide the header
     rulesBox.classList.add("hide");// hide the rules for the quiz
     questionContainerElement.classList.remove("hide"); // question will pop up
+    quizTimer.classList.remove("hide");
+    
     
 
 }
+
+
+
+
+//function will start timer for the quiz
+function startTimer() {
+    //Sets timer
+    var timerInterval = setInterval(function(){
+        timerCount --;
+        timerElement.textContent = timerCount + "seconds left.";
+
+        if(secondsLeft = 0){
+            clearInterval(timerInterval);
+            sendMessage() = " thank you for taking this quiz!!!";
+            startGame();
+        }
+
+    }, 1000);
+}
+

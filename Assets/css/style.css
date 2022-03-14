@@ -37,7 +37,6 @@ body {
     width: 800px;
     max-width: 80%;
     background-color: lightblue;
-    border-radius: 5px;
     padding: 10px; 
     margin : 40px 0px;
     border-radius: 5px;
@@ -93,7 +92,34 @@ body {
         
 }
 
-
 .hide {
     display: none;
 }
+
+.large-font {
+    font-size: 64px;
+    text-align: center;
+}
+
+.quiz-timer{
+    position:absolute;
+    top: 15px;
+    height: 170px;
+    width: 250px;
+    padding: 10px;
+    background-color: rgb(136, 219, 212);
+    color: aliceblue;
+    text-align:center; 
+    border-radius: 35px;
+    box-shadow: 0 0 10px 2px;
+    margin-top: 20px;
+    color: black;
+   }
+
+.timer-text{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    
+}
+
