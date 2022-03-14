@@ -1,3 +1,7 @@
+
+
+
+// Array created with questions, options and answers.
 var question = [{
 question: "Inside which HTML element do we put the JavaScript?",
 options: ["<script>" , "<js>" , "<javascript>" , "<scripting>"],
@@ -30,8 +34,15 @@ options:[ "v carName;" , "variable carName;" , "var carName;" , "var = carName;"
 }
 ];
 
+//below are the variable to initiate the quiz
+var startButton = document.getElementById("start-btn");
 
 
+startButton.addEventListener("click", startGame);
 
+//first initiate start button with addEventlistner click for that creat variable StartButton
 
+function startGame() {
+    console.log("Started");
 
+}
