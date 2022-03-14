@@ -9,11 +9,11 @@
 </head>
 <body>
 <!--heading for the quiz-->    
-<header>Timed Quiz on JavaScript Fundamentals</header>
+<header id="heading">Timed Quiz on JavaScript Fundamentals</header>
 
     <!--Quiz rules and information container-->
-    <div class="rules-box">
-        <div class="rules-title">Quiz rules :</div>
+    <section class="rules-box" id="rules-box">
+        <div id="rules-title">Quiz rules :</div>
         <div class="rules-list">
             <h3 class="rules">1) Total quiz time 2 minutes 30 seconds</h3>
             <h3 class="rules">2) Selected answer cannot be undone</h3>
@@ -21,12 +21,12 @@
             <h3 class="rules">4) 20 seconds penalty for wrong answer</h3>
             <h3 class="rules">5) You will earn points on basis of correct answer</h3>
         </div>
-    </div>                                                                                    
+    </section>                                                                                    
     
 
 
     <!--quiz question and answers-->
-    <div class="container">
+    <section class="container">
         <div id="question-container" class="hide">
             <div id="question">Questions</div>
             <div id="answer-buttons" class="btn-container">
@@ -40,7 +40,7 @@
             <button id="start-btn" class="start-btn btn">Start</button>
             <button id="next-btn" class="next-btn btn hide">Next</button>
         </div>
-    </div>
-
+    </section>
+    <script src="./Assets/js/script.js"></script>
 </body>
 </html>

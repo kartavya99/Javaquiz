@@ -36,7 +36,9 @@ options:[ "v carName;" , "variable carName;" , "var carName;" , "var = carName;"
 
 //below are the variable to initiate the quiz
 var startButton = document.getElementById("start-btn");
-
+var questionContainerElement = document.getElementById("question-container");
+var heading = document.getElementById("heading");
+var rulesBox = document.getElementById("rules-box");
 
 startButton.addEventListener("click", startGame);
 
@@ -44,5 +46,10 @@ startButton.addEventListener("click", startGame);
 
 function startGame() {
     console.log("Started");
+    startButton.classList.add("hide"); // after clicking the start button - hide it to start the quiz
+    heading.classList.add("hide"); // hide the header
+    rulesBox.classList.add("hide");// hide the rules for the quiz
+    questionContainerElement.classList.remove("hide"); // question will pop up
+    
 
 }

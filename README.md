@@ -48,7 +48,8 @@ workflow of the quiz
 1) Function to start the game
     start the quiz game with click on the start button
     add event listener click on start button to start the game 
-    hide the start button after the game start
+    hide the start button, header and rules after the game start
+
 
 2)function StartTimer for 2.30mins
 

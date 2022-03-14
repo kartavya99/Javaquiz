@@ -19,7 +19,7 @@ body {
 }
 
 /* styling for the heading */
-header{
+#heading{
     width: 800px;
     max-width: 80%;
     font-size: 25px;
@@ -45,7 +45,7 @@ header{
 
 }
 
-.rules-title{
+#rules-title{
     font-size: 30px;
     font-weight: bold;
     text-decoration: underline;
@@ -61,6 +61,8 @@ header{
     padding : 10px;
     box-shadow: 0 0 10px 2px;
 }
+
+ 
 
 .btn-container{
     display: flex;
