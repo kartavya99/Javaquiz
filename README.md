@@ -33,9 +33,6 @@ Adding rules for the quiz to brief the users
 updated header and rules for the quiz 
 
 
-
-
-
 ### pseudo code
 Start button with best wishes and time starts or exit quiz
 question and four options
@@ -43,6 +40,25 @@ question and four options
 record points for correct answer
 time penalty for incorrect answer
 
+## 14/03/2022
+
+create array with questions, answer and 4 options including correct answer 
+
+workflow of the quiz 
+1) Function to start the game
+    start the quiz game with click on the start button
+    add event listener click on start button to start the game 
+    hide the start button after the game start
+
+2)function StartTimer for 2.30mins
+
+
+
+3) Function to set the next question 
+
+
+
+4) Function for selected answer 
 
 
 
