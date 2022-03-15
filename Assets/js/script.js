@@ -33,17 +33,18 @@ options:[ "v carName;" , "variable carName;" , "var carName;" , "var = carName;"
 }
 ];
 
-// timer variable
+
 
 // variable to store date from question array 
 var shuffledQuestion = question;
-var randomQuestion = ""
+//var randomQuestion = ""
 var quizTracker = 0;
 var secondsLeft = 101;
 var userAnswer = 0;
 
 //below are the variable to initiate the quiz
 var startButton = document.getElementById("start-btn");
+var nextButton = document.getElementById("next-btn");
 var questionContainerElement = document.getElementById("question-container");
 var heading = document.getElementById("heading");
 var rulesBox = document.getElementById("rules-box");
@@ -80,6 +81,7 @@ function setNextQuestion() {
     answerButton.innerHTML = "";
     for (i=0; i < shuffledQuestion[quizTracker].options.length; i++){
         var backhandButton = document.createElement("button");
+        // backhandButton is button to select answer
         backhandButton.textContent = shuffledQuestion[quizTracker].options[i];
         backhandButton.onclick = checkAnswer;
         answerButton.append(backhandButton);
@@ -87,23 +89,32 @@ function setNextQuestion() {
     }
 }
 
-function checkAnswer() {
-    console.log("checkingAnswer");
-    console.log(this.textContent);
-    // conditions to check correct answer with if 
-//    var userAns = 
-  
 
-//    if(userAns === correctAns){
-//        return true;
-//    } else {
-//        return false;
-//    }
+function checkAnswer() {
+    console.log("userAns");
+     console.log(this.textContent);
+     var userAns = shuffledQuestion[quizTracker].correctAnswer[i];
+    // conditions to check correct answer with if 
+    var correctAns = question[userAnswer].correctAnswer[i];  
+    
+    if(userAns === correctAns) {
+        userScore += 1;
+        console.log("Correct Answer");
+    }
+      
     
 
 
     //quiz tracker goes up one by +
     // execute setNextQuestion 
+}
+
+
+
+
+function selectAnswer(e) {
+    var selectedButton = e.target;
+    var correct = selectedButton.dataset.correct;
 }
 
 //function will start timer for the quiz
@@ -118,3 +129,4 @@ function startTimer() {
 }
     update = setInterval("startTimer()", 1000);
     
+
