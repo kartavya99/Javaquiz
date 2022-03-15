@@ -35,8 +35,10 @@ options:[ "v carName;" , "variable carName;" , "var carName;" , "var = carName;"
 ];
 
 // timer variable
-var secondsLeft = 150;
-
+var secondsLeft = 100;
+// variable to store date from question array 
+var shuffledQuestion = question;
+var randomQuestion = ""
 
 
 //below are the variable to initiate the quiz
@@ -45,10 +47,14 @@ var questionContainerElement = document.getElementById("question-container");
 var heading = document.getElementById("heading");
 var rulesBox = document.getElementById("rules-box");
 var quizTimer = document.getElementById("quiz-timer");
+var question = document.getElementById("question");
+var answerButton = document.getElementById("answer-buttons");
 
+
+// added click event listener to start button
 startButton.addEventListener("click", startGame);
 
-//first initiate start button with addEventlistner click for that creat variable StartButton
+
 
 function startGame() {
     console.log("Started");
@@ -57,27 +63,49 @@ function startGame() {
     rulesBox.classList.add("hide");// hide the rules for the quiz
     questionContainerElement.classList.remove("hide"); // question will pop up
     quizTimer.classList.remove("hide");
-    
-    
+    setNextQuestion();
 
+    
+}
+
+//function to set the first question 
+function setNextQuestion() {
+    var showQuestion = [(shuffledQuestion)];
+    console.log(showQuestion);
 }
 
 
 
 
-//function will start timer for the quiz
-function startTimer() {
-    //Sets timer
-    var timerInterval = setInterval(function(){
-        timerCount --;
-        timerElement.textContent = timerCount + "seconds left.";
+// var randomQuestion = ""
+//     for (var i = 0; i < shuffledQuestion; i ++) {
+//         var randomQuestion = shuffledQuestion[Math.floor(Math.random()*shuffledQuestion.length)]
+//         randomQuestion += randomQuestion
+//     }
 
-        if(secondsLeft = 0){
-            clearInterval(timerInterval);
-            sendMessage() = " thank you for taking this quiz!!!";
-            startGame();
-        }
 
-    }, 1000);
-}
 
+// //function will start timer for the quiz
+// function startTimer() {
+//     secondsLeft = secondsLeft -1;
+//     if()
+
+//         if(secondsLeft = 0){
+//             clearInterval(timerInterval);
+//             sendMessage() = " thank you for taking this quiz!!!";
+//             startGame();
+//         }
+
+//     }, 1000);
+// }
+
+// function startTimer(){
+//     secondsLeft = secondsLeft - 1;
+//     if (secondsLeft < 100 ){
+//         timerCount.innerHTML = secondsLeft;
+//     }
+//     if (secondsLeft < 1) {
+//         window.clearInterval(update);
+//     }
+// }
+// update = setInterval("startTimer()", 1000)
