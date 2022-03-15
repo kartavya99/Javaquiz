@@ -53,15 +53,20 @@ workflow of the quiz
     hide the start button, header and rules after the game start
 
 
-2)function StartTimer for 2.30mins
+2)function StartTimer for 100 seconds
+time set and will start the quiz start button
+Next step - to add penalty for the wrong question 
+
 
 
 
 3) Function to set the next question 
+function set next question is working 
+next step is to match selected options with the correct answer with true or false
+if return true then add points with false 20 second penalty.
 
 
 
-4) Function for selected answer 
 
 
 

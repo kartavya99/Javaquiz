@@ -68,7 +68,7 @@ function startGame() {
     quizTimer.classList.remove("hide");
     setNextQuestion();
     startTimer();
-// trigeer stat timer function
+// trigger stat timer function and it is working
     
 }
 
@@ -103,7 +103,7 @@ function checkAnswer() {
 
 
     //quiz tracker goes up one by +
-    // excute setNextQuestion 
+    // execute setNextQuestion 
 }
 
 //function will start timer for the quiz
