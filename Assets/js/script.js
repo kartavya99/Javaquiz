@@ -42,6 +42,7 @@ var quizTracker = 0;
 var secondsLeft = 101;
 var userAnswer = 0;
 
+
 //below are the variable to initiate the quiz
 var startButton = document.getElementById("start-btn");
 var nextButton = document.getElementById("next-btn");
@@ -69,7 +70,8 @@ function startGame() {
     quizTimer.classList.remove("hide");
     setNextQuestion();
     startTimer();
-// trigger stat timer function and it is working
+    
+    // trigger stat timer function and it is working
     
 }
 
@@ -86,6 +88,7 @@ function setNextQuestion() {
         backhandButton.onclick = checkAnswer;
         answerButton.append(backhandButton);
         
+         
     }
 }
 
@@ -93,15 +96,17 @@ function setNextQuestion() {
 function checkAnswer() {
     console.log("userAns");
      console.log(this.textContent);
-     var userAns = shuffledQuestion[quizTracker].correctAnswer[i];
-    // conditions to check correct answer with if 
-    var correctAns = question[userAnswer].correctAnswer[i];  
-    
-    if(userAns === correctAns) {
-        userScore += 1;
-        console.log("Correct Answer");
+     
+    if(quizTracker.correctAnswer == userAnswer){
+     console.log("correct Answer!");
+     } else {
+       console.log("wrong answer");
     }
-      
+    
+
+
+    // conditions to check correct answer with if 
+    
     
 
 
@@ -112,10 +117,10 @@ function checkAnswer() {
 
 
 
-function selectAnswer(e) {
-    var selectedButton = e.target;
-    var correct = selectedButton.dataset.correct;
-}
+// function selectAnswer(e) {
+//     var selectedButton = e.target;
+//     var correct = selectedButton.dataset.correct;
+// }
 
 //function will start timer for the quiz
 function startTimer() {
