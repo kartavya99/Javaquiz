@@ -65,6 +65,10 @@ function set next question is working
 next step is to match selected options with the correct answer with true or false
 if return true then add points with false 20 second penalty.
 
+4) function checkAnswer created now 
+    check the answer submitted by user with correct answer 
+    next button initiated by removing hide classlist and also added ++ in quizTracker to pop up next question.
+
 
 
 

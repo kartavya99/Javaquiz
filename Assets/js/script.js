@@ -37,7 +37,7 @@ options:[ "v carName;" , "variable carName;" , "var carName;" , "var = carName;"
 
 // variable to store date from question array 
 var shuffledQuestion = question;
-//var randomQuestion = ""
+// randomQuestion = ""
 var quizTracker = 0;
 var secondsLeft = 101;
 var userAnswer = 0;
@@ -57,6 +57,10 @@ var quizTimer = document.getElementById("quiz-timer");
 
 // added click event listener to start button
 startButton.addEventListener("click", startGame);
+nextButton.addEventListener('click', () => {
+   quizTracker++
+    setNextQuestion()
+});
 
 
 
@@ -97,15 +101,19 @@ function checkAnswer() {
     console.log("userAns");
      console.log(this.textContent);
      
-    if(quizTracker.correctAnswer == userAnswer){
+    //console.log(quizTracker.correctAnswer);
+
+    // conditions to check correct answer with if 
+    if (shuffledQuestion[quizTracker].correctAnswer == this.textContent){
      console.log("correct Answer!");
+     quizTracker ++;
      } else {
        console.log("wrong answer");
     }
-    
+    nextButton.classList.remove("hide");
+   
 
 
-    // conditions to check correct answer with if 
     
     
 
@@ -117,10 +125,6 @@ function checkAnswer() {
 
 
 
-// function selectAnswer(e) {
-//     var selectedButton = e.target;
-//     var correct = selectedButton.dataset.correct;
-// }
 
 //function will start timer for the quiz
 function startTimer() {
