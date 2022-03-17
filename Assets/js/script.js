@@ -37,7 +37,6 @@ options:[ "v carName;" , "variable carName;" , "var carName;" , "var = carName;"
 
 // variable to store date from question array 
 var shuffledQuestion = question;
-// randomQuestion = ""
 var quizTracker = 0;
 var secondsLeft = 101;
 var userAnswer = 0;
@@ -90,13 +89,15 @@ function setNextQuestion() {
     question.textContent = showQuestion; 
     answerButton.innerHTML = "";
     for (i=0; i < shuffledQuestion[quizTracker].options.length; i++){
-        if (shuffledQuestion.length > quizTracker + 1 ){
+        if (quizTracker < shuffledQuestion.length -1){
+            
+            
             nextButton.classList.remove("hide");
         } else {
+            location.reload();
             nextButton.classList.add("hide");
-            startButton.innerText = "Restart";
-            startButton.classList.remove("hide");
-        }
+       
+         }
         var backhandButton = document.createElement("button");
         // backhandButton is button to select answer
         backhandButton.textContent = shuffledQuestion[quizTracker].options[i];
@@ -126,7 +127,7 @@ function checkAnswer() {
     }
     
     // quiz tracker goes up one for the next question
-    quizTracker++;
+   // quizTracker++;
     //execute setNextQuestion function to show question with options, next button and also to restart button
     setNextQuestion();
     
