@@ -41,6 +41,7 @@ var shuffledQuestion = question;
 var quizTracker = 0;
 var secondsLeft = 101;
 var userAnswer = 0;
+var userScore = 0;
 
 
 //below are the variable to initiate the quiz
@@ -53,14 +54,17 @@ var timerCount = document.getElementById("timer-count");
 var question = document.getElementById("question");
 var answerButton = document.getElementById("answer-buttons");
 var quizTimer = document.getElementById("quiz-timer");
+var btnContainer = document.querySelector(".btn-container");
 
 
 // added click event listener to start button
 startButton.addEventListener("click", startGame);
-nextButton.addEventListener('click', () => {
-   quizTracker++
-    setNextQuestion()
-});
+nextButton.addEventListener("click" , setNextQuestion);
+// nextButton will appear once quiz starts
+// nextButton.addEventListener('click', () => {
+//    quizTracker++
+//     setNextQuestion()
+// });
 
 
 
@@ -73,10 +77,9 @@ function startGame() {
     questionContainerElement.classList.remove("hide"); // question will pop up
     quizTimer.classList.remove("hide");
     setNextQuestion();
+    // Start time function starts at 100 seconds
     startTimer();
-    
-    // trigger stat timer function and it is working
-    
+        
 }
 
 //function to set the first question 
@@ -85,14 +88,15 @@ function setNextQuestion() {
     console.log(showQuestion);
     question.textContent = showQuestion; 
     answerButton.innerHTML = "";
-    for (i=0; i < shuffledQuestion[quizTracker].options.length; i++){
         var backhandButton = document.createElement("button");
         // backhandButton is button to select answer
         backhandButton.textContent = shuffledQuestion[quizTracker].options[i];
+        // added click on backhandbutton to checkanswer 
         backhandButton.onclick = checkAnswer;
+        // append backhandbutton to the answerbutton
         answerButton.append(backhandButton);
-        
-         
+       
+      
     }
 }
 
@@ -100,22 +104,27 @@ function setNextQuestion() {
 function checkAnswer() {
     console.log("userAns");
      console.log(this.textContent);
-     
+     nextButton.classList.remove("hide");
     //console.log(quizTracker.correctAnswer);
 
     // conditions to check correct answer with if 
     if (shuffledQuestion[quizTracker].correctAnswer == this.textContent){
-     console.log("correct Answer!");
-     quizTracker ++;
+       userScore =+ 1;
+       quizTracker =+ 1;
+       console.log("correct Answer!");
+       console.log( "your correct answer = " + userScore);
+
      } else {
        console.log("wrong answer");
     }
-    nextButton.classList.remove("hide");
-   
+    
+
+    quizTracker++;
+    setNextQuestion();
 
 
-    
-    
+
+      
 
 
     //quiz tracker goes up one by +
