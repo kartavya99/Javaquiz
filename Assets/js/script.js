@@ -41,7 +41,8 @@ var shuffledQuestion = question;
 var quizTracker = 0;
 var secondsLeft = 101;
 var userAnswer = 0;
-var userScore = 0;
+var winCounter = 0;
+var loseCounter = 0;
 
 
 //below are the variable to initiate the quiz
@@ -116,9 +117,9 @@ function checkAnswer() {
 
     // conditions to check correct answer with if 
     if (shuffledQuestion[quizTracker].correctAnswer == this.textContent){
-       userScore =+ 1;
-       console.log("correct Answer!");
-       console.log( "your correct answer = " + userScore);
+       winCounter ++
+       //console.log("correct Answer!");
+       console.log( "your correct answer = " + winCounter);
 
      } else {
        console.log("wrong answer");
@@ -131,6 +132,40 @@ function checkAnswer() {
     
 }
 
+function setWins () {
+    win.textContent = winCounter;
+    localStorage.setItem("winCount", winCounter);
+}
+
+
+function wins(){
+    //get stored value from client storage, if it available 
+    var storedWins = localStorage.getItem('winCount');
+    // if stored value doesn't exit, set counter to 0
+    if (storeWins === null) {
+        windCounter = 0;
+    } else {
+        // If a value if retrieved from client storage set the winCounter to taht value
+        windCounter = storedWins;
+    }
+
+}
+
+
+function setLosses() {
+    lose.textContent = loseCounter;
+    localStorage.setItem("loseCount", loseCounter);
+}
+
+function getLosses() {
+    var storedLosses = localStorage.getItem("loseCount");
+    if (storedLosses === null) {
+        loseCounter = 0;
+    } else {
+        loseCounter = startTimer-20;
+    }
+    lose.textContent = loseCounter;
+}
 
 //function will start timer for the quiz
 function startTimer() {
@@ -144,4 +179,12 @@ function startTimer() {
 }
     update = setInterval("startTimer()", 1000);
     
+
+function resetQuiz() {
+    //Reset score to zero
+    winCounter = 0;
+    loseCounter = 0;
+    // renders winning score and sets them into client storage
+    setWins()
+}
 
