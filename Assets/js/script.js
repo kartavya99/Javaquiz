@@ -124,21 +124,12 @@ function checkAnswer() {
        console.log("wrong answer");
     }
     
-
+    // quiz tracker goes up one for the next question
     quizTracker++;
+    //execute setNextQuestion function to show question with options, next button and also to restart button
     setNextQuestion();
-
-
-
-      
-
-
-    //quiz tracker goes up one by +
-    // execute setNextQuestion 
+    
 }
-
-
-
 
 
 //function will start timer for the quiz
