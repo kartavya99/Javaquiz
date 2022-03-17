@@ -30,7 +30,7 @@ create another div container for start button and next button.
 
 added timer with hide property and will remove it in JS to show when quiz starts
 -------------------------------------------------------------------------------
-Date : 14/03/2022
+
 Adding rules for the quiz to brief the users
 updated header and rules for the quiz 
 
@@ -69,7 +69,12 @@ if return true then add points with false 20 second penalty.
     check the answer submitted by user with correct answer 
     next button initiated by removing hide classlist and also added ++ in quizTracker to pop up next question.
 
-
+Date 17/03/2022
+5) Added conditional statement to match correct answer and user score goes up by 1
+6) added conditional statement for the questions to end the quiz or restart it and hide next button at the last question.
+    next button is actually useless because while selecting the answer - quiz goes by 1+
+    still needs to capture result of the answer and make next button active 
+    options to end the quiz or restart it.
 
 
 

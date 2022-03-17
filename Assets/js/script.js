@@ -10,7 +10,7 @@ correctAnswer: "<script>",
 
 {
 question : "How to write an IF statement for executing some code if 'i' is NOT equal to 5?",
-options:["if(i<>5)" , "if(!=5)>" , "if i<>5" , "if i=!5 then"],
+options:["if(i<>5)" , "if(!=5)" , "if i<>5" , "if i=!5 then"],
 correctAnswer : "if(!=5)",
 },
 
@@ -61,10 +61,10 @@ var btnContainer = document.querySelector(".btn-container");
 startButton.addEventListener("click", startGame);
 nextButton.addEventListener("click" , setNextQuestion);
 // nextButton will appear once quiz starts
-// nextButton.addEventListener('click', () => {
-//    quizTracker++
-//     setNextQuestion()
-// });
+nextButton.addEventListener('click', () => {
+   quizTracker++;
+    setNextQuestion();
+});
 
 
 
@@ -89,13 +89,20 @@ function setNextQuestion() {
     question.textContent = showQuestion; 
     answerButton.innerHTML = "";
     for (i=0; i < shuffledQuestion[quizTracker].options.length; i++){
+        if (shuffledQuestion.length > quizTracker + 1 ){
+            nextButton.classList.remove("hide");
+        } else {
+            nextButton.classList.add("hide");
+            startButton.innerText = "Restart";
+            startButton.classList.remove("hide");
+        }
         var backhandButton = document.createElement("button");
         // backhandButton is button to select answer
         backhandButton.textContent = shuffledQuestion[quizTracker].options[i];
-        // added click on backhandbutton
+        // added click on backHandButton
         backhandButton.onclick = checkAnswer;
         //answer button and backhandButton connected
-                answerButton.append(backhandButton);
+        answerButton.append(backhandButton);
        
       
     }
@@ -105,13 +112,11 @@ function setNextQuestion() {
 function checkAnswer() {
     console.log("userAns");
      console.log(this.textContent);
-     nextButton.classList.remove("hide");
     //console.log(quizTracker.correctAnswer);
 
     // conditions to check correct answer with if 
     if (shuffledQuestion[quizTracker].correctAnswer == this.textContent){
        userScore =+ 1;
-       quizTracker =+ 1;
        console.log("correct Answer!");
        console.log( "your correct answer = " + userScore);
 
