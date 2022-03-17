@@ -88,13 +88,14 @@ function setNextQuestion() {
     console.log(showQuestion);
     question.textContent = showQuestion; 
     answerButton.innerHTML = "";
+    for (i=0; i < shuffledQuestion[quizTracker].options.length; i++){
         var backhandButton = document.createElement("button");
         // backhandButton is button to select answer
         backhandButton.textContent = shuffledQuestion[quizTracker].options[i];
-        // added click on backhandbutton to checkanswer 
+        // added click on backhandbutton
         backhandButton.onclick = checkAnswer;
-        // append backhandbutton to the answerbutton
-        answerButton.append(backhandButton);
+        //answer button and backhandButton connected
+                answerButton.append(backhandButton);
        
       
     }
