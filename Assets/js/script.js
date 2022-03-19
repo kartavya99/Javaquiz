@@ -27,9 +27,9 @@ correctAnswer : "Yes",
 },
 
 {
-question : "How do you declare a JavaScript variable?",
+question_1 : "How do you declare a JavaScript variable?",
 correctAnswer : "var carName;",
-options:[ "v carName;" , "variable carName;" , "var carName;" , "var = carName;"]
+options :[ "v carName;" , "variable carName;" , "var carName;" , "var = carName;"]
 }
 ];
 
@@ -85,19 +85,19 @@ function startGame() {
 //function to set the first question 
 function setNextQuestion() {
     var showQuestion = shuffledQuestion[quizTracker].question;
-    console.log(showQuestion);
+    //console.log(showQuestion);
     question.textContent = showQuestion; 
     answerButton.innerHTML = "";
     for (i=0; i < shuffledQuestion[quizTracker].options.length; i++){
-        if (quizTracker < shuffledQuestion.length -1){
-            
-            
+        if (quizTracker < shuffledQuestion.length -1){        
             nextButton.classList.remove("hide");
-        } else {
-            location.reload();
-            nextButton.classList.add("hide");
-       
-         }
+        } else if (shuffledQuestion[quizTracker].question_1){
+            window.location.reload();
+            nextButton.classList.add("hide");       
+         } //else {
+           // window.location.reload();
+           // nextButton.classList.add("hide")
+        // }
         var backhandButton = document.createElement("button");
         // backhandButton is button to select answer
         backhandButton.textContent = shuffledQuestion[quizTracker].options[i];
@@ -116,6 +116,7 @@ function checkAnswer() {
      console.log(this.textContent);
     //console.log(quizTracker.correctAnswer);
 
+    
     // conditions to check correct answer with if 
     if (shuffledQuestion[quizTracker].correctAnswer == this.textContent){
        winCounter ++
@@ -125,11 +126,21 @@ function checkAnswer() {
      } else {
        console.log("wrong answer");
     }
+
+    if (quizTracker === shuffledQuestion.length){
+       location.reload();
+        nextButton.classList.add("hide");
+       
+   } else {
+       nextButton.classList.remove("hide");
+       setNextQuestion();
+  
+    }
     
     // quiz tracker goes up one for the next question
-   // quizTracker++;
+    // quizTracker++;
     //execute setNextQuestion function to show question with options, next button and also to restart button
-    setNextQuestion();
+    //setNextQuestion();
     
 }
 
