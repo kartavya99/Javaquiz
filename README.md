@@ -67,7 +67,7 @@ if return true then add points with false 20 second penalty.
 
 4) function checkAnswer created now 
     check the answer submitted by user with correct answer 
-    next button initiated by removing hide classlist and also added ++ in quizTracker to pop up next question.
+    next button initiated by removing hide class list and also added ++ in quizTracker to pop up next question.
 
 ## Date 17/03/2022
 

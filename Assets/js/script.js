@@ -56,7 +56,7 @@ var question = document.getElementById("question");
 var answerButton = document.getElementById("answer-buttons");
 var quizTimer = document.getElementById("quiz-timer");
 var btnContainer = document.querySelector(".btn-container");
-var button = document.querySelector(".button");
+//var button = document.querySelector(".button");
 var resultButton = document.querySelector(".result");
 
 
@@ -69,6 +69,7 @@ nextButton.addEventListener('click', () => {
     setNextQuestion();
 });
 resultButton.addEventListener("click", wins);
+question.setAttribute("class", "question");
 
 
 
@@ -156,7 +157,7 @@ function checkAnswer() {
 }
 
 function setWins () {
-    win.textContent = winCounter;
+    wins.textContent = winCounter;
     localStorage.setItem("winCount", winCounter);
 }
 
@@ -165,11 +166,11 @@ function wins(){
     //get stored value from client storage, if it available 
     var storedWins = localStorage.getItem('winCount');
     // if stored value doesn't exit, set counter to 0
-    if (storeWins === null) {
-        windCounter = 0;
+    if (storedWins === null) {
+        winCounter = 0;
     } else {
         // If a value if retrieved from client storage set the winCounter to taht value
-        windCounter = storedWins;
+        winCounter = storedWins;
     }
 
 }
@@ -195,7 +196,10 @@ update = setInterval("startTimer()", 1000);
 
     function scorePenalty(){
         if (secondsLeft >= 10)
-        secondsLeft = secondsLeft -10;
+        secondsLeft = secondsLeft -10 
+     // ||
+    //  secondsLeft == 0
+    //  window.clearInterval(update);
     }
 
 function resetQuiz() {
