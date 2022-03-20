@@ -8,16 +8,17 @@
     <link rel="stylesheet" href="./Assets/css/style.css">
 </head>
 <body>
+
+    
 <!--heading for the quiz-->    
 <header id="heading" class="heading">Timed Quiz on JavaScript Fundamentals</header>
-
 
 
     <!--Quiz rules and information container-->
     <section class="rules-box" id="rules-box">
         <div id="rules-title" class="rules-title">Quiz rules :</div>
         <div class="rules-list">
-            <h3 class="rules">1) Total quiz time 2 minutes 30 seconds</h3>
+            <h3 class="rules">1) Total quiz time is 50 seconds</h3>
             <h3 class="rules">2) Selected answer cannot be undone</h3>
             <h3 class="rules">3) Please select single answer for each question</h3>
             <h3 class="rules">4) 20 seconds penalty for wrong answer</h3>
@@ -29,7 +30,7 @@
         <div id="quiz-timer"class="quiz-timer hide">
             <div class="timer-text">
                 <h1>Time left :</h1>
-                <div class="large-font timer-count" id="timer-count">100</div>
+                <div class="large-font timer-count" id="timer-count">51</div>
                 
             </div>
         </div>  
@@ -49,6 +50,12 @@
         <div class="controls">
             <button id="start-btn" class="start-btn btn">Start</button>
             <button id="next-btn" class="next-btn btn hide">Next</button>
+        </div>
+    </section>
+
+    <section>
+        <div class="result">
+            <button>View HighScores</button>
         </div>
     </section>
 

@@ -18,6 +18,21 @@ body {
  
 }
 
+.result{ 
+    width: fit-content;
+    display: flex;
+    justify-content: flex-start;
+    background-color: lightblue;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px 2px;
+    text-align: center;
+    text-transform: uppercase;
+    margin-top: 25px;
+    
+    
+}
+
 /* styling for the heading */
 .heading{
     width: 800px;
@@ -124,11 +139,11 @@ body {
     
 }
 
-.btn.correct {
+.correct {
     color: black;
     background-color: gray;
 }
 
-.btn.wrong {
+.wrong {
     background-color: red;
 }
