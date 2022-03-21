@@ -56,12 +56,11 @@ var question = document.getElementById("question");
 var answerButton = document.getElementById("answer-buttons");
 var quizTimer = document.getElementById("quiz-timer");
 var btnContainer = document.querySelector(".btn-container");
-//var button = document.querySelector(".button");
+var button = document.querySelector(".button");
 var resultButton = document.querySelector(".result");
-var scores = document.getElementById("#scores");
-
-
-
+var scores = document.getElementById("scores");
+var container = document.querySelector("container");
+var quizOver = document.getElementById("quiz-over");
 
 
 
@@ -73,15 +72,11 @@ nextButton.addEventListener("click" , setNextQuestion);
 nextButton.addEventListener('click', () => {
    quizTracker++;
     setNextQuestion();
-    // if (quizTracker >= shuffledQuestion.length){
-    // quizOver();
-    //  } else {
-    //      quizTracker++;
-    // }
+   
 });
 resultButton.addEventListener("click", wins);
 //question.setAttribute("class", "question");
-    //scores.addEventListener("click" , setWins);
+//scores.addEventListener("click" , setWins);
 
 
 
@@ -115,15 +110,6 @@ function setNextQuestion() {
 
 
     for (i=0; i < shuffledQuestion[quizTracker].options.length; i++){
-        // if (quizTracker < shuffledQuestion.length -1){        
-        //     nextButton.classList.remove("hide");
-        // // } else if (shuffledQuestion[quizTracker].question_1){
-        // //    // window.location.reload();
-        // //    // nextButton.classList.add("hide");       
-        //  } else {
-        //     // window.location.reload();
-        //     nextButton.classList.add("hide")
-        // }
      var backhandButton = document.createElement("button");
         
         // backhandButton is button to select answer
@@ -143,58 +129,22 @@ function checkAnswer() {
      console.log(this.textContent);
     //console.log(quizTracker.correctAnswer);
 
-    
     // conditions to check correct answer with if 
     if (shuffledQuestion[quizTracker].correctAnswer == this.textContent){
        winCounter += 50;
-       
-     // button.setAttribute("class", "correct");  //add .btn correct class added in CSS
-
-       //console.log("correct Answer!");
-       console.log( "your correct answer = " + winCounter);
-        // add .btn wrong class added in CSS as well
+    //console.log("correct Answer!");
+    console.log( "your correct answer = " + winCounter);
+    
      } else {
         scorePenalty(); // 10 seconds penalty for the wrong answer.
        console.log("wrong answer");
     }
     
     if(quizTracker >= shuffledQuestion.length -1) {
-    //quizOver(); // creat end game function to submit the scores for users
+        endGame(); // creat end game function to submit the scores for users
     }
-
-    // was asked to add this conditional statement for Ask BCA help
-    // if (quizTracker === shuffledQuestion.length){
-    //    location.reload();
-    //     nextButton.classList.add("hide");
-       
-    // } else {
-    //    nextButton.classList.remove("hide");
-    //    setNextQuestion();
-  
-    // };
-    
-    // quiz tracker goes up one for the next question
-    // quizTracker++;
-    //execute setNextQuestion function to show question with options, next button and also to restart button
-    // setNextQuestion();
-    
 }
 
-
-// function resetQuiz() {
-//     //Reset score to zero
-//     winCounter = 0;
-//    // renders winning score and sets them into client storage
-    
-// }
-
-
-
-
-function setWins () {
-    localStorage.setItem("winCount", winCounter);
-   // grab initials out of the input and store their win count in their local storage 
-}
 
 
 function wins(){
@@ -206,10 +156,15 @@ function wins(){
     } else {
         // If a value if retrieved from client storage set the winCounter to that value
         winCounter = storedWins;
-    }
+    } 
 
-   
+
 }
+
+function setWins () {
+    localStorage.setItem("winCount", winCounter);
+    // grab initials out of the input and store their win count in their local storage 
+ }
 
 
 //function will start timer for the quiz
@@ -218,15 +173,13 @@ function startTimer() {
     if(secondsLeft < 51) {
         timerCount.innerHTML = secondsLeft;
     }
-    if (secondsLeft < 1 ) {
-        window.clearInterval(update);
-    }
+    // if (secondsLeft < 1 ) {
+    //     window.clearInterval(update);
+    //}
     if (secondsLeft === 0){
-        clearInterval(secondsLeft);
-        quizOver();
-       // window.location.reload();
+        clearInterval(update);
+        endGame();
     }
-
 }
 update = setInterval("startTimer()", 1000);
     
@@ -235,24 +188,19 @@ function scorePenalty(){
         if (secondsLeft >= 10){
             secondsLeft = secondsLeft -10 
         } else {
-            //quizOver();
+            endGame();
         } 
  }
 
-var quizOver = document.getElementById("#quiz-over");
+
+function endGame(){
     
-function quizOver(){
+    if(secondsLeft === 0){
+        clearInterval(secondsLeft);
+    }
+    scores.addEventListener("click" , setWins);
     questionContainerElement.classList.add("hide"); 
-    quizOver.classList.remove("hide");
+    quizOver.classList.remove("hide"); 
     document.getElementById("winCount").textContent = winCounter;
-}
-
-
-// function quizOver() {
-//     //clearInterval(update);
-//     questionContainerElement.classList.add("hide"); 
-//     quizOver.classList.remove("hide");
     
-//     document.getElementById("winCount").textContent = winCounter;
-
-// }
+}
