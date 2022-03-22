@@ -77,6 +77,10 @@ if return true then add points with false 20 second penalty.
     still needs to capture result of the answer and make next button active 
     options to end the quiz or restart it.gi
 
+Finally debug the error - it was small typo error.
+
+next to work is to store the initial for the users and link it to the high scores button .
+
 
 
 

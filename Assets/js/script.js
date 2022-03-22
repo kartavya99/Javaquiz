@@ -45,6 +45,7 @@ var loseCounter = 0;
 var penalty = 0;
 
 
+
 //below are the variable to initiate the quiz
 var startButton = document.getElementById("start-btn");
 var nextButton = document.getElementById("next-btn");
@@ -61,7 +62,7 @@ var resultButton = document.querySelector(".result");
 var scores = document.getElementById("scores");
 var container = document.querySelector("container");
 var quizOver = document.getElementById("quiz-over");
-
+var initials = document.getElementById("initial");
 
 
 
@@ -72,11 +73,13 @@ nextButton.addEventListener("click" , setNextQuestion);
 nextButton.addEventListener('click', () => {
    quizTracker++;
     setNextQuestion();
+    buttonClickable = false;
    
 });
 resultButton.addEventListener("click", wins);
 //question.setAttribute("class", "question");
-//scores.addEventListener("click" , setWins);
+
+scores.addEventListener("click" , setWins);
 
 
 
@@ -107,8 +110,6 @@ function setNextQuestion() {
         nextButton.classList.remove("hide");
     }
     
-
-
     for (i=0; i < shuffledQuestion[quizTracker].options.length; i++){
      var backhandButton = document.createElement("button");
         
@@ -126,9 +127,8 @@ function setNextQuestion() {
 
 function checkAnswer() {
     console.log("userAns");
-     console.log(this.textContent);
-    //console.log(quizTracker.correctAnswer);
-
+    console.log(this.textContent);
+    
     // conditions to check correct answer with if 
     if (shuffledQuestion[quizTracker].correctAnswer == this.textContent){
        winCounter += 50;
@@ -142,10 +142,10 @@ function checkAnswer() {
     
     if(quizTracker >= shuffledQuestion.length -1) {
         endGame(); // creat end game function to submit the scores for users
-    }
+     }
 }
 
-
+     
 
 function wins(){
     //get stored value from client storage, if it available 
@@ -157,14 +157,18 @@ function wins(){
         // If a value if retrieved from client storage set the winCounter to that value
         winCounter = storedWins;
     } 
-
-
 }
+
+
+
 
 function setWins () {
     localStorage.setItem("winCount", winCounter);
+    //debugger;
+    localStorage.setItem("scores", winCounter);
     // grab initials out of the input and store their win count in their local storage 
  }
+
 
 
 //function will start timer for the quiz
@@ -194,13 +198,10 @@ function scorePenalty(){
 
 
 function endGame(){
-    
-    if(secondsLeft === 0){
-        clearInterval(secondsLeft);
-    }
+    clearInterval(update);
     scores.addEventListener("click" , setWins);
     questionContainerElement.classList.add("hide"); 
     quizOver.classList.remove("hide"); 
     document.getElementById("winCount").textContent = winCounter;
-    
+    scores.addEventListener("click" , setWins);
 }
