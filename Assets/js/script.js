@@ -43,6 +43,7 @@ var userAnswer = 0;
 var winCounter = 0;
 var loseCounter = 0;
 var penalty = 0;
+var singleClick = true;
 
 
 
@@ -126,6 +127,7 @@ function setNextQuestion() {
 
 
 function checkAnswer() {
+    singleClick = false;
     console.log("userAns");
     console.log(this.textContent);
     
