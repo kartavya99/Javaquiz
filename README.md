@@ -85,6 +85,10 @@ next to work is to store the initial for the users and link it to the high score
 There are few things I would like to work on it but due but I am unable to complete due to new week started and also the need to start working on new assignment as well. 
 
 
+screen shot of the deployed application 
+<img src="Assets/images/Screenshot_quiz.png" width ="500">
+
+
 
 
 
