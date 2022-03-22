@@ -86,9 +86,11 @@ There are few things I would like to work on it but due but I am unable to compl
 
 
 screen shot of the deployed application 
-<img src="Assets/images/Screenshot_quiz.png" width ="500">
+<img src="Assets/images/Screenshot_quiz.png" width ="400">
 
+also the URL of of the deployed application 
 
+## https://github.com/kartavya99/Javaquiz
 
 
 
