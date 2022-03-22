@@ -74,8 +74,8 @@ nextButton.addEventListener("click" , setNextQuestion);
 nextButton.addEventListener('click', () => {
    quizTracker++;
     setNextQuestion();
-    buttonClickable = false;
-   
+    singleClick = false;
+      
 });
 resultButton.addEventListener("click", wins);
 //question.setAttribute("class", "question");
@@ -101,6 +101,7 @@ function startGame() {
 
 //function to set the first question 
 function setNextQuestion() {
+    singleClick = true;
     var showQuestion = shuffledQuestion[quizTracker].question;
     //console.log(showQuestion);
     question.textContent = showQuestion; 
@@ -121,13 +122,14 @@ function setNextQuestion() {
         //answer button and backhandButton connected
         answerButton.append(backhandButton);
        
-        
+       
     }
 }
 
 
 function checkAnswer() {
-    singleClick = false;
+    singleClick =false;
+    console.log(singleClick);
     console.log("userAns");
     console.log(this.textContent);
     
@@ -145,6 +147,8 @@ function checkAnswer() {
     if(quizTracker >= shuffledQuestion.length -1) {
         endGame(); // creat end game function to submit the scores for users
      }
+
+     
 }
 
      
