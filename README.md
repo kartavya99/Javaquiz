@@ -81,6 +81,9 @@ Finally debug the error - it was small typo error.
 
 next to work is to store the initial for the users and link it to the high scores button .
 
+## final comment:
+There are few things I would like to work on it but due but I am unable to complete due to new week started and also the need to start working on new assignment as well. 
+
 
 
 

@@ -64,7 +64,7 @@ var scores = document.getElementById("scores");
 var container = document.querySelector("container");
 var quizOver = document.getElementById("quiz-over");
 var initials = document.getElementById("initial");
-
+var result = document.getElementById("result");
 
 
 // added click event listener to start button
@@ -151,7 +151,6 @@ function checkAnswer() {
      
 }
 
-     
 
 function wins(){
     //get stored value from client storage, if it available 
@@ -163,6 +162,9 @@ function wins(){
         // If a value if retrieved from client storage set the winCounter to that value
         winCounter = storedWins;
     } 
+    // var userResult = document.createElement("h3");
+    // userResult.textContent = winCounter;
+    // result.append(userResult);
 }
 
 
@@ -211,3 +213,5 @@ function endGame(){
     document.getElementById("winCount").textContent = winCounter;
     scores.addEventListener("click" , setWins);
 }
+
+
