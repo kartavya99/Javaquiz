@@ -90,8 +90,7 @@ screen shot of the deployed application
 
 also the URL of of the deployed application 
 
-## https://github.com/kartavya99/Javaquiz
-
+## https://kartavya99.github.io/Javaquiz/
 
 
 
